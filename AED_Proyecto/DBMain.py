@@ -1,9 +1,8 @@
-# coding=utf-8
 
+from neo4j import GraphDatabase
 from Database import Database
 from Classes.Career import *
 import tkinter as tk
-from neo4j import GraphDatabase
 
 uri = "bolt://localhost:7687"
 
@@ -242,9 +241,9 @@ def print_():
             print("Ya no hay mas preguntas")
 
 
-def recommend_():
+def recommend1():
     res = []
-    query = db.recommend(answers_list[0], answers_list[1], answers_list[2])
+    query = db.recommend1(answers_list[0], answers_list[1], answers_list[2])
     for record in query:
         res.append(Career(record[0]["nombre"], record[0]["facultad"]))
     final = "No se encontraron carreras para ti"
@@ -333,7 +332,7 @@ next_.place(x=550, y=650)
 starts_ = tk.Button(text="Iniciar", width=15, bg='black', fg='white', command=start_)
 starts_.place(x=285, y=650)
 
-end_ = tk.Button(text="Ver resultados", width=15, bg='white', fg='white', command=recommend_)
+end_ = tk.Button(text="Ver resultados", width=15, bg='white', fg='white', command=recommend1)
 end_.place(x=-50, y=-50)
 
 root.mainloop()

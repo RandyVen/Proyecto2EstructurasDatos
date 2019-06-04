@@ -94,11 +94,24 @@ class Database(object):
     # primero sobre un parámetro. Luego, sobre el resultado de ese query hace el query siguiente con otro parámetro y
     # así sucesivamente hasta llegar a un resultado que esté conectado por todos los parámetros en el que el primer
     # parámetro es de mayor importancia y el último de menos.
-    def recommend(self, course, role_model, activity):
+    def recommend1(self, course, role_model, activity):
         result = """MATCH (c:Carrera)<-[:lleva]-(:Clase {nombre: '%s'}),
         (c)<-[:lleva]-(:Persona {nombre: '%s'}),
         (c)<-[:lleva]-(:gusto {nombre: '%s'})
      RETURN (c)""" % (course, role_model, activity)
+        with self._driver.session() as session:
+            return session.read_transaction(self._Default, result)
+
+    def recommend2(self, course, role_model):
+        result = """MATCH (c:Carrera)<-[:lleva]-(:Clase {nombre: '%s'}),
+        (c)<-[:lleva]-(:Persona {nombre: '%s'})
+     RETURN (c)""" % (course, role_model)
+        with self._driver.session() as session:
+            return session.read_transaction(self._Default, result)
+
+    def recommend3(self, course):
+        result = """MATCH (c:Carrera)<-[:lleva]-(:Clase {nombre: '%s'})
+     RETURN (c)""" % course
         with self._driver.session() as session:
             return session.read_transaction(self._Default, result)
 
