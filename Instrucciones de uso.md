@@ -7,14 +7,13 @@ El codigo está escrito en Python y usa Neo4J para crear enlaces con todo.
 
 Hay dos cosas necesarias que debes tener para correr el programa.
 
-1. Python 3.7  Puedes descargarlo aquí: https://www.python.org/downloads/
-
+1. PyCharm  Puedes descargarlo aquí: https://www.jetbrains.com/pycharm/download/#section=windows
 2. Neo4J Puedes descargarlo aquí:https://neo4j.com/download/
 
 
 Escribe Python en el buscador de Windows y al darle click derecho nos aparecera "Go to folder"  
 
-3. Haga clic en la ruta del archivo en la parte superior de la ventana y cópiela
+3. Haga clic en la ruta del archivo en la parte superior de la ventana y cópiel
 4. Siga este tutorial: https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
 5. En el último paso, pegue la dirección que obtuvimos en el paso número 3
 6. Presione Windows + R en su teclado, escriba "cmd" y presione enter
@@ -38,7 +37,9 @@ Ahora, en Neo4J
 14. Haga clic en ejecutar
 15. Espera a que se termine y minimiza Neo4J.
 Ahora, vamos a ejecutar el programa!
-1. En la carpeta AED_Proyecto
-2. Busque el archivo llamado "DBMain.py"
-3. Haz clic derecho en este archivo, selecciona "Abrir con" y luego haz clic en "Python"
-4. Disfruta!
+1. Abra su PyCharm y abra los programas DBMain.py, Database.py y Career.py 
+2. Ahora agregaremos los interpretes nesesarios para que pueda correr el programa, primero nos vamos a file en la esquina superior izquierda
+3. Buscamos Settings y ahí agregamos los packages con el + que está alapar del last version
+4. Agregaremos neo4j,neobolt,neotime,pip, pytz,setuptools y six y le damos aplicar.
+5. luego de eso si no ha pasado nada guarde el proyecto y reinicie PyCharm.
+6. A este punto solo queda correr el programa y contestar la encuesta en ella.
