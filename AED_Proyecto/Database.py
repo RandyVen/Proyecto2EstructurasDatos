@@ -90,9 +90,12 @@ class Database(object):
         with self._driver.session() as session:
             return session.write_transaction(self._getNodes, result, value)
 
-    # Este método es la base para nuestro sistema de recomendaciones. Esto debido a que hace el query en Neo4j
-    # primero sobre un parámetro. Luego, sobre el resultado de ese query hace el query siguiente con otro parámetro y
-    # así sucesivamente hasta llegar a un resultado que esté conectado por todos los parámetros en el que el primer
+    # Este método es la base para el sistema de recomendaciones.
+    # Esto debido a que hace el query en Neo4j
+    # primero sobre un parámetro. Luego, sobre el resultado de
+    # ese query hace el query siguiente con otro parámetro y
+    # así sucesivamente hasta llegar a un resultado que esté
+    # conectado por todos los parámetros en el que el primer
     # parámetro es de mayor importancia y el último de menos.
     def recommend1(self, course, role_model, activity):
         result = """MATCH (c:Carrera)<-[:lleva]-(:Clase {nombre: '%s'}),
