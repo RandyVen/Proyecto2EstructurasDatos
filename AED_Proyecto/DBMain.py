@@ -43,7 +43,7 @@ for record in result4:
 
 root = tk.Tk()
 root.geometry('700x700')
-root.title("UVG - Recomendacion de Carreras")
+root.title("Recomendador de Carreras")
 
 preguntas_dict = {0: [],
                   1: [],
@@ -84,7 +84,7 @@ label = tk.Label(text=preguntas_list[0], font="arial 12")
 label.place(x=-50, y=-50)
 
 global welcome
-welcome = tk.Label(text="Presiona el boton de inicio para comenzar", font="arial 14 bold")
+welcome = tk.Label(text="Se lo mas sincero para responder las preguntas", font="arial 14 bold")
 welcome.place(x=150, y=120)
 
 global input
@@ -265,7 +265,7 @@ def recommend_():
         query = db.recommend3(answers_list[0])
         for record in query:
             res.append(Career(record[0]["nombre"], record[0]["facultad"]))
-    final = "Las carreras ideales para ti son:\n\n"
+    final = "Las carreras recomendadas para ti son:\n\n"
     for rec in res:
         final += rec.name + "\n"
     final_txt['text'] = final
